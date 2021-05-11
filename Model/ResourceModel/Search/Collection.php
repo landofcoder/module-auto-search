@@ -162,7 +162,8 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
         if(!$collection) {
             $collection = $this;
         }
-        $collection->addFieldToFilter('entity_id', ['in' => new \Zend_Db_Expr($this->_getSearchEntityIdsSql($query))]);        
+        $collection->addFieldToFilter('entity_id', ['in' => new \Zend_Db_Expr($this->_getSearchEntityIdsSql($query))]);
+        
         return $collection;
     }
     public function getFlatState()
@@ -371,7 +372,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
     {
         $tables = [];
         $selects = [];
-
         $likeOptions = ['position' => 'any'];
 
         $is_flat_catalog = $this->_helperData->getCatalogConfig("frontend/flat_catalog_product", $this->_current_store_id);
@@ -402,7 +402,6 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
                 if (!isset($tables[$table]) && $attribute->getBackendType() != 'static') {
                     $tables[$table] = [];
                 }
-
                 if ($attribute->getBackendType() == 'static') {
                     if(is_array($this->_searchQuery)) {
                         $select = $this->getConnection()->select()->from(
@@ -477,7 +476,7 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Product\Collection
         }
 
         $sql = $this->getConnection()->select()->union($selects, \Magento\Framework\DB\Select::SQL_UNION_ALL);
-
+        
         return $sql;
     }
 
