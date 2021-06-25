@@ -163,6 +163,7 @@ class Ajaxgetproduct extends Action
 						$collection = $collection->addCategoryFilter($category);
 					}
 			}
+			
 			$collection->setOrder('entity_id','desc')->setPageSize($limit)->setCurPage(1);
 			if ($this->_objectManager->get('Magento\CatalogSearch\Helper\Data')->isMinQueryLength()) {
 				$query->setId(0)->setIsActive(1)->setIsProcessed(1);
