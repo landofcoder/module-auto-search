@@ -25,7 +25,7 @@ $showTrendingKeyword = $this->getData('show_trendingkeywords');
                 placeholder="<?php echo __('Search entire store here...'); ?>"
                 class="input-text"
                 autocomplete="off"/>
-                <input type="hidden" name="name" placeholder="<?php echo __('Search entire store here...'); ?>" class="input-text" autocomplete="off"/>
+                <input type="hidden" name="name" placeholder="<?php echo __('Search entire store here...'); ?>" value="<?php echo $helper->getEscapedQueryText() ?>" class="input-text" autocomplete="off"/>
                 <button class="button-search fa fa-search"></button>
             </div>
         </form>
