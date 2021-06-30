@@ -152,6 +152,19 @@ class Autosearch extends \Magento\Catalog\Block\Product\AbstractProduct implemen
 	/**
 	 * @return string
 	 */
+	public function getCatalogAdvancedSearchLink() 
+	{
+		$isSecure = $this->_storeManager->getStore()->isCurrentlySecure();
+		if($isSecure) {
+			return $this->getUrl('catalogsearch/advanced/result/', array('_secure'=>true));
+		} else {
+			return $this->getUrl('catalogsearch/advanced/result/');
+		}
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getTreeCategories($parentId,$level = 0, $caret = '  '){
 		$category_id = $this->getRequest()->getParam("cat");
 		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();

@@ -106,7 +106,7 @@ $enable_search_category = $dataHelper->getConfig("search_options/enable_search_c
 										rItem = [];
 										rItem['name'] = rItem['image'] = rItem['link'] = '';
 										rItem['price'] = rItem['product_id'] = 0;
-										rItem['html'] = '<a class="smore" href="<?php echo $this->getCatalogSearchLink(); ?>?'+rData+'" onclick="window.location=this.href">'+text_view_all+'</a>';
+										rItem['html'] = '<a class="smore" href="<?php echo $this->getCatalogAdvancedSearchLink(); ?>?name='+text+'" onclick="window.location=this.href">'+text_view_all+'</a>';
 										products.push(rItem);
 										//Init search products
 										var result_products = [];
