@@ -7,7 +7,7 @@ $blockId             = 'lof-search' . $moduleId;
 $showTrendingKeyword = $this->getData('show_trendingkeywords');
 ?>
 <div class="<?php echo $prefix; ?> lof-autosearch box search_box" id="<?php echo $blockId ?>">
-    <form method="GET" id="form<?php echo $blockId ?>" action="<?php echo $this->getCatalogSearchLink(); ?>">
+    <form method="GET" id="form<?php echo $blockId ?>" action="<?php echo $this->getQueryParamName(); ?>">
         <?php if(!empty($categories)) { ?>
             <div class="filter_type category-filter">
                 <span class="fa fa-caret-down"></span>
@@ -25,6 +25,7 @@ $showTrendingKeyword = $this->getData('show_trendingkeywords');
                 placeholder="<?php echo __('Search entire store here...'); ?>"
                 class="input-text"
                 autocomplete="off"/>
+                <input type="hidden" name="name" placeholder="<?php echo __('Search entire store here...'); ?>" class="input-text" autocomplete="off"/>
                 <button class="button-search fa fa-search"></button>
             </div>
         </form>

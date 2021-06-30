@@ -6,7 +6,7 @@ $searchHelper   = $this->helper('Lof\Autosearch\Helper\Data');
 $blockId        = 'lof-search' . $moduleId;
 ?>
 <div class="<?php echo $prefix; ?> lof-autosearch box search_box" id="<?php echo $blockId ?>">
-    <form method="GET" id="form<?php echo $blockId ?>" action="<?php echo $this->getCatalogSearchLink(); ?>">
+    <form method="GET" id="form<?php echo $blockId ?>" action="<?php echo $this->getCatalogAdvancedSearchLink(); ?>">
         <?php if(!empty($categories)) { ?>
             <div class="filter_type category-filter">
                 <span class="fa fa-caret-down"></span>
@@ -24,6 +24,7 @@ $blockId        = 'lof-search' . $moduleId;
                 placeholder="<?php echo __('Search entire store here...'); ?>"
                 class="input-text"
                 autocomplete="off"/>
+                <input type="hidden" name="name" placeholder="<?php echo __('Search entire store here...'); ?>" class="input-text" autocomplete="off"/>
                 <button class="button-search fa fa-search"></button>
             </div>
         </form>
@@ -34,7 +35,7 @@ $blockId        = 'lof-search' . $moduleId;
                 </div>
                 <div class="content">
                     <?php foreach ($trendingCollection as $_term): ?>
-                    <a href="<?php echo $this->getCatalogSearchLink(); ?>?q=<?php echo $block->escapeHtml($_term->getQueryText()) ?>" style="font-size:<?php echo $_term->getPopularity()/100*80+90 ?>%;">
+                    <a href="<?php echo $this->getCatalogAdvancedSearchLink(); ?>?name=<?php echo $block->escapeHtml($_term->getQueryText()) ?>" style="font-size:<?php echo $_term->getPopularity()/100*80+90 ?>%;">
                         <?php echo $block->escapeHtml($_term->getQueryText()) ?>
                     </a>
                 <?php endforeach; ?>

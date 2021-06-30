@@ -20,6 +20,7 @@ $enable_search_category = $dataHelper->getConfig("search_options/enable_search_c
 			$(document).find('.lof-autosearch').each(function(index, el) {
 				var self          = $(this);
 				var selector      = self.find('input[name=\'<?php echo $helper->getQueryParamName() ?>\']').eq(0);
+				var inputName 	  = self.find('input[name=\'name\']').eq(0);
 				var cache         = suggested = [];
 				var catBlock      = self.find('select[name=\"cat\"]').eq(0);
 				
@@ -52,6 +53,9 @@ $enable_search_category = $dataHelper->getConfig("search_options/enable_search_c
 								rData = 'cat=' + category_id + '&';
 							}
 							rData += 'q=' + text;
+							if(inputName !== undefined){
+								inputName.val(text);
+							}
 							$.ajax({
 								url: '<?php echo $listProductLink ?>',
 								dataType: 'json',
