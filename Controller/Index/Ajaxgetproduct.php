@@ -148,6 +148,9 @@ class Ajaxgetproduct extends Action
 			$this->_layerResolver = $this->_objectManager->create("Magento\Catalog\Model\Layer\Resolver");
 			$this->_layerResolver->create(LayerResolver::CATALOG_LAYER_SEARCH);
 			if ($searchFulltext == '1') {
+				if(!$categoryId){
+					$categoryId = $rootCategoryId;
+				}
 				$category = $this->_categoryModel->load($categoryId);
 				$collection = $this->_searchModel->getResultSearchCollection($searchstring,$category, $storeId);
 			}else{
@@ -162,7 +165,6 @@ class Ajaxgetproduct extends Action
 			}
 			
 			$collection->setOrder('entity_id','desc')->setPageSize($limit)->setCurPage(1);
-
 			if ($this->_objectManager->get('Magento\CatalogSearch\Helper\Data')->isMinQueryLength()) {
 				$query->setId(0)->setIsActive(1)->setIsProcessed(1);
 			}else{
