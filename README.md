@@ -1,3 +1,5 @@
+# Magento 2 Auto Search Suggestion extension:
+
 Call search API by use the url:
 
 http://yourdomain.com/rest/V1/lof-autosearch/autosearch/search-key-world/store_id/category_id/limit_terms
