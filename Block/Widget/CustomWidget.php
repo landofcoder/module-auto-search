@@ -33,7 +33,8 @@ class CustomWidget extends \Lof\Autosearch\Block\Autosearch implements \Magento\
         $searchCollection = "";
         if($this->_autosearchHelper->getConfig('general/show_filter_category')) {
             $rootCatId = $this->_storeManager->getStore()->getRootCategoryId();
-            $categories = $this->getTreeCategories($rootCatId, 0);
+            $maxLevel = $this->_autosearchHelper->getConfig('general/max_category_level');
+            $categories = $this->getTreeCategories($rootCatId, 0, ' ', (int)$maxLevel);
         }
 
         $this->assign( "categories_links", $this->_categories_links);

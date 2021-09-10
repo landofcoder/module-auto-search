@@ -95,7 +95,7 @@ class Autosearch extends \Magento\Catalog\Block\Product\AbstractProduct implemen
 			if($this->_autosearchHelper->getConfig('general/show_filter_category')) {
 				$rootCatId = $this->_storeManager->getStore()->getRootCategoryId();
 				$maxLevel = $this->_autosearchHelper->getConfig('general/max_category_level');
-				$categories = $this->getTreeCategories($rootCatId, 0, (int)$maxLevel);
+				$categories = $this->getTreeCategories($rootCatId, 0,' ', (int)$maxLevel);
 			}
 
 			$this->assign( "categories_links", $this->_categories_links);
