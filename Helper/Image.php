@@ -1,18 +1,18 @@
 <?php
 /**
  * Landofcoder
- * 
+ *
  * NOTICE OF LICENSE
- * 
+ *
  * This source file is subject to the landofcoder.com license that is
  * available through the world-wide-web at this URL:
  * http://landofcoder.com/license
- * 
+ *
  * DISCLAIMER
- * 
+ *
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
- * 
+ *
  * @category   Landofcoder
  * @package    Lof_Autosearch
  * @copyright  Copyright (c) 2016 Landofcoder (http://www.landofcoder.com/)
@@ -43,7 +43,7 @@ class Image extends \Magento\Framework\App\Helper\AbstractHelper
 	 * @param mixed							    $file			Specific file
 	 * @return string
 	 */
-	public function getImg($product, $w=300, $h, $imgVersion='image', $file=NULL)
+	public function getImg($product, $w = 300, $h = 300, $imgVersion='image', $file=NULL)
 	{
 		if (!$h || (int)$h == 0){
 			$image = $this->_imageHelper
