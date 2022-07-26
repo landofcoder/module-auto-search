@@ -27,7 +27,6 @@
 				<show>1</show>
 				<prefix></prefix>
 				<show_filter_category>1</show_filter_category>
-				<max_category_level>3</max_category_level>
 				<limit>5</limit>
 				<search_delay>500</search_delay>
 				<show_sku>0</show_sku>

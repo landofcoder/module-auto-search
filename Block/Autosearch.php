@@ -94,8 +94,7 @@ class Autosearch extends \Magento\Catalog\Block\Product\AbstractProduct implemen
 			$searchCollection = "";
 			if($this->_autosearchHelper->getConfig('general/show_filter_category')) {
 				$rootCatId = $this->_storeManager->getStore()->getRootCategoryId();
-				$maxLevel = $this->_autosearchHelper->getConfig('general/max_category_level');
-				$categories = $this->getTreeCategories($rootCatId, 0,' ', (int)$maxLevel);
+				$categories = $this->getTreeCategories($rootCatId, 0);
 			}
 
 			$this->assign( "categories_links", $this->_categories_links);
@@ -166,7 +165,7 @@ class Autosearch extends \Magento\Catalog\Block\Product\AbstractProduct implemen
 	/**
 	 * @return string
 	 */
-	public function getTreeCategories($parentId,$level = 0, $caret = '  ', $maxLevel = 3){
+	public function getTreeCategories($parentId,$level = 0, $caret = '  '){
 		$category_id = $this->getRequest()->getParam("cat");
 		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 		$current_category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
@@ -198,8 +197,8 @@ class Autosearch extends \Magento\Catalog\Block\Product\AbstractProduct implemen
 				$subcats = $category->getChildren();
 				$html .= '<option value="'.$category->getId().'" '.($category_id == $category->getId() ? 'selected="selected"':'') .'>'.$prefix.$category->getName().'</option>';
 				$subcats = $category->getChildren();
-				if ($subcats != '' && ((int)$level + 1) < $maxLevel) { 
-					$html .= $this->getTreeCategories($category->getId(), (int)$level + 1, $caret.'&nbsp;', $maxLevel);
+				if($subcats != ''){ 
+					$html .= $this->getTreeCategories($category->getId(), (int)$level + 1, $caret.'&nbsp;');
 				}
 
 			}
