@@ -44,10 +44,6 @@
 					<label>Show Filter Category</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
-				<field id="max_category_level" translate="label comment" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
-					<label>Max Categories Level</label>
-					<depends><field id="show_filter_category">1</field></depends>
-				</field>
 				<field id="show_inmenu_category" translate="label comment" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Show Only Categories Include In Menu</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
